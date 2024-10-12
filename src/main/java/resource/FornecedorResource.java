@@ -12,9 +12,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.jboss.resteasy.annotations.jaxrs.PathParam;
+
 import exception.ColecaoException;
 import exception.ConexaoException;
-import jakarta.websocket.server.PathParam;
 import model.Fornecedor;
 import persistence.ColecaoFornecedor;
 import persistence.ColecaoFornecedorBdr;

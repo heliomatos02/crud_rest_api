@@ -7,6 +7,7 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 import resource.FornecedorResource;
+import resource.LoginResource;
 
 /**
  * 
@@ -17,6 +18,7 @@ public class RestAPI extends Application{
 	
 	public RestAPI() {
 		this.singletons.add(new FornecedorResource());
+		this.singletons.add(new LoginResource());
 	}
 	
 	@Override
