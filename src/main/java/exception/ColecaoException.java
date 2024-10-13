@@ -2,6 +2,11 @@ package exception;
 
 public class ColecaoException extends Exception{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ColecaoException() {
 		super();
 		// TODO Auto-generated constructor stub

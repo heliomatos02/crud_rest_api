@@ -21,10 +21,11 @@ import model.Usuario;
 @Path("/login")
 public class LoginResource {
 	public final SecretKey CHAVE = Keys.hmacShaKeyFor(
-			"7f-j&CKk=coNzZc0y7_4obMP?#TfcYq%fcD0mDpenW2nc!lfGoZ|d?f&RNbDHUX6".getBytes(StandardCharsets.UTF_8));
+			"7f-j&CKk=coNzZc0y7_4obMP?#TfcYq%fcD0mRffnP2nc!lfGoZ|d?f&RNbDHUX6".getBytes(StandardCharsets.UTF_8));
+
 
 	@POST
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response post(Usuario usuario) {
 		try {
@@ -36,8 +37,9 @@ public class LoginResource {
 						.signWith(CHAVE, SignatureAlgorithm.HS256).compact();
 
 				return Response.status(Response.Status.OK).entity(jwtToken).build();
-			} else
+			} else {
 				return Response.status(Response.Status.UNAUTHORIZED).entity("Usuário e/ou senha inválidos").build();
+			}
 		} catch (Exception ex) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(ex.getMessage()).build();
 		}

@@ -8,6 +8,7 @@ import javax.ws.rs.core.Application;
 
 import resource.FornecedorResource;
 import resource.LoginResource;
+import security.SecurityInterceptor;
 
 /**
  * 
@@ -17,6 +18,7 @@ public class RestAPI extends Application{
 	private Set<Object> singletons = new HashSet<Object>();
 	
 	public RestAPI() {
+		this.singletons.add(new SecurityInterceptor());
 		this.singletons.add(new FornecedorResource());
 		this.singletons.add(new LoginResource());
 	}
